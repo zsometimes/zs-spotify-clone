@@ -45,4 +45,4 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
     );
 }
 
-export default Library
+export default Library;
