@@ -40,7 +40,8 @@ const LikeButton: React.FC<LikeButtonProps> = ({ songId }) => {
 
         fetchData();
     }, [songId, supabaseClient, user?.id]);
-
+    
+    console.log(isLiked);
     const Icon = isLiked ? AiFillHeart : AiOutlineHeart;
 
     const handleLike = async () => {
@@ -50,7 +51,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({ songId }) => {
 
         if (isLiked) {
             const { error } = await supabaseClient
-                .from('liked_song')
+                .from('liked_songs')
                 .delete()
                 .eq('user_id', user.id)
                 .eq('song_id', songId);
